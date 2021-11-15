@@ -1,20 +1,39 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Shop Items
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-grid>
+    <!-- First Row -->
+    <ion-row>
+      <ion-col size="8">
+        <app-item-info></app-item-info>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button color="secondary" size="auto">Manager</ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- First Row -->
+    <!-- Button Row -->
+    <ion-row class="ion-justify-content-around">
+      <ion-col size="auto">
+        <app-number-input></app-number-input>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-button color="primary">Buy</ion-button>
+        <br/>
+        <ion-button color="medium">Clear</ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- Button Row -->
+    <!-- Qty Row -->
+    <ion-row>
+      <p>Quantity: </p>
+    </ion-row>
+    <!-- Qty Row -->
+  </ion-grid>
 </ion-content>
