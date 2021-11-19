@@ -29,3 +29,14 @@
 ion-grid {
   margin: 0px 20px 0px 20px;
 }
+
+.name-qty-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.inv-list {
+  display: flex;
+  justify-content: space-between;
+  --background-activated: blue;
+}

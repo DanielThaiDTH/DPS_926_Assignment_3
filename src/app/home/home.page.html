@@ -11,29 +11,51 @@
     <!-- First Row -->
     <ion-row>
       <ion-col size="8">
-        <app-item-info></app-item-info>
+        <app-item-info [content]="(selectedItem | itemName)"></app-item-info>
       </ion-col>
       <ion-col size="2">
-        <ion-button color="secondary" size="auto">Manager</ion-button>
+        <ion-button color="secondary" size="auto" [routerLink]="['/manager']">
+          Manager
+        </ion-button>
       </ion-col>
     </ion-row>
     <!-- First Row -->
     <!-- Button Row -->
     <ion-row class="ion-justify-content-around">
       <ion-col size="auto">
-        <app-number-input></app-number-input>
+        <app-number-input (countChange)="updateCount($event)" [count] = "count"></app-number-input>
       </ion-col>
       <ion-col size="auto">
         <ion-button color="primary">Buy</ion-button>
         <br/>
-        <ion-button color="medium">Clear</ion-button>
+        <ion-button color="medium" (click)="clearCount()">Clear</ion-button>
       </ion-col>
     </ion-row>
     <!-- Button Row -->
     <!-- Qty Row -->
     <ion-row>
-      <p>Quantity: </p>
+      <p>{{count}}</p>
     </ion-row>
     <!-- Qty Row -->
+    <!-- List Row -->
+    <ion-list-header>
+      <ion-label>Products</ion-label>
+    </ion-list-header>
+    <ion-list *ngFor="let item of inventory">
+      <ion-item class="inv-list" button (click)="itemClick(item)" detail=false>
+        <div class="name-qty-stack">
+          <ion-label>
+            {{item.name}}
+          </ion-label>
+          <ion-label>
+            {{item.quantity}}
+          </ion-label>
+        </div>
+        <ion-label style="text-align: right;">
+          ${{item.price}}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <!-- List Row -->
   </ion-grid>
 </ion-content>

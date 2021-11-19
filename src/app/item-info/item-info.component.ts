@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-item-info',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./item-info.component.scss'],
 })
 export class ItemInfoComponent implements OnInit {
-  content: string = "Test";
-  constructor() { }
+  @Input() content: string;
+  constructor() {
+    this.content = "";
+   }
 
   ngOnInit() {}
 

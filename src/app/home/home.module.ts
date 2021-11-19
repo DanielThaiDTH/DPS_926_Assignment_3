@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { ItemInfoComponent } from '../item-info/item-info.component';
 import { NumberInputComponent } from '../number-input/number-input.component';
+import { ItemNamePipe } from '../item-name.pipe';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { NumberInputComponent } from '../number-input/number-input.component';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage, ItemInfoComponent, NumberInputComponent]
+  declarations: [HomePage, ItemInfoComponent, NumberInputComponent, ItemNamePipe]
 })
 export class HomePageModule {}
