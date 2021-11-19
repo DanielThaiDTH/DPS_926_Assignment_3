@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>History</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/']">Home</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list-header>
+    <ion-label>History</ion-label>
+  </ion-list-header>
+  <ion-list *ngFor="let log of history">
+    <ion-item class="his-list" detail=false>
+      <div class="stack">
+        <div class="row">
+          <ion-label>
+            {{log.name}}
+          </ion-label>
+          <div class="stack">
+            <ion-label style="text-align: right;">
+              Quantity: {{log.quantity}}
+            </ion-label>
+            <ion-label style="text-align: right;">
+              Total: {{log.total_cost | currency}}
+            </ion-label>
+          </div>
+        </div>
+        <ion-label class="date">
+          {{log.date | dateString}}
+        </ion-label>
+      </div>
+      
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,7 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { InventoryService } from '../inventory-service.service';
+import { HistoryService } from '../history.service';
 import { Observable, ObservedValueOf } from 'rxjs';
 import { Item } from '../Item';
+import { SaleLog } from '../SaleLog';
 import { NumberInputComponent } from '../number-input/number-input.component';
 
 
@@ -19,7 +21,7 @@ export class HomePage {
   @ViewChild(NumberInputComponent)
   private num_input: NumberInputComponent;
   
-  constructor(private inv_serv : InventoryService) {
+  constructor(private inv_serv: InventoryService, private his_serv: HistoryService) {
     this.count = 0;
     this.selectedItem = null;
   }
@@ -48,6 +50,7 @@ export class HomePage {
       alert(`Number of ${this.selectedItem.name} selected is more than what is in the inventory.`);
     } else if (this.count > 0) {
       this.selectedItem.quantity -= this.count;
+      this.his_serv.addHistory( new SaleLog(this.selectedItem.name, this.count, this.count*this.selectedItem.price) );
     }
 
     this.clearCount();

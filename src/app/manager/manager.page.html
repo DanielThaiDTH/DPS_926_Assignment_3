@@ -4,12 +4,15 @@
       <ion-back-button [text]="Back"></ion-back-button>
     </ion-buttons>
     <ion-title>Manager</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/']">Home</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div id="button-layout">
-    <ion-button>History</ion-button>
+    <ion-button [routerLink]="['/history']">History</ion-button>
     <ion-button color="warning">Restock</ion-button>
     <ion-button color="success">Add New Product</ion-button>
   </div>
