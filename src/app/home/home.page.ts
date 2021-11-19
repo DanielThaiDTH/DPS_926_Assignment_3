@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { InventoryService } from '../inventory-service.service';
 import { Observable, ObservedValueOf } from 'rxjs';
 import { Item } from '../Item';
+import { NumberInputComponent } from '../number-input/number-input.component';
 
 
 @Component({
@@ -14,6 +15,9 @@ export class HomePage {
   inventory: Item[];
   count: number;
   selectedItem: Item;
+
+  @ViewChild(NumberInputComponent)
+  private num_input: NumberInputComponent;
   
   constructor(private inv_serv : InventoryService) {
     this.count = 0;
@@ -37,7 +41,7 @@ export class HomePage {
     this.selectedItem = it;
   }
 
-  buyItem() {
+  buyItem(): void {
     if (!this.selectedItem) {
       alert("No item selected");
     } else if (this.selectedItem.quantity < this.count) {
@@ -47,6 +51,6 @@ export class HomePage {
     }
 
     this.clearCount();
-    
+    this.num_input.clearDigits();
   }
 }

@@ -39,4 +39,8 @@ export class NumberInputComponent implements OnInit {
     }
     this.countChange.emit(this.count);
   }
+
+  clearDigits(): void {
+    this.digits = [];
+  }
 }

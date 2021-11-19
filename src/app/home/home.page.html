@@ -26,7 +26,7 @@
         <app-number-input (countChange)="updateCount($event)" [count] = "count"></app-number-input>
       </ion-col>
       <ion-col size="auto">
-        <ion-button color="primary">Buy</ion-button>
+        <ion-button color="primary" (click)="buyItem()">Buy</ion-button>
         <br/>
         <ion-button color="medium" (click)="clearCount()">Clear</ion-button>
       </ion-col>

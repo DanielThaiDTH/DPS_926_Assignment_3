@@ -1,0 +1,14 @@
+
+#button-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+    width: 40%;
+    margin: auto;
+}
+
+#button-layout ion-button {
+    margin: 5vh 0 5vh 0;
+    width: 40vw;
+}
