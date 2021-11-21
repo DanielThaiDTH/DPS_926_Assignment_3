@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#error {
+    text-align: center;
+    margin: 5px 10px 10px 10px;
+}
+
+#selected-item {
+    margin: 5vh 10px 10px 10px;
+}

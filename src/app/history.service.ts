@@ -19,4 +19,9 @@ export class HistoryService {
   addHistory(log: SaleLog): void {
     this.history.push(log);
   }
+
+  getLog(id: number): SaleLog {
+    let log = this.history.find(l => l.id === id);
+    return log ? log : null;
+  }
 }

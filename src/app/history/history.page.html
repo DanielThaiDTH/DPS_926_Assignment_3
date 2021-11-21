@@ -15,26 +15,20 @@
     <ion-label>History</ion-label>
   </ion-list-header>
   <ion-list *ngFor="let log of history">
-    <ion-item class="his-list" detail=false>
+    <ion-item class="his-list" detail=false [routerLink]="['/log']" [queryParams]="{ logid: log.id }">
       <div class="stack">
         <div class="row">
           <ion-label>
             {{log.name}}
           </ion-label>
-          <div class="stack">
-            <ion-label style="text-align: right;">
-              Quantity: {{log.quantity}}
-            </ion-label>
-            <ion-label style="text-align: right;">
-              Total: {{log.total_cost | currency}}
-            </ion-label>
-          </div>
+          <ion-label style="text-align: right;">
+            Quantity: {{log.quantity}}
+          </ion-label>
         </div>
         <ion-label class="date">
           {{log.date | dateString}}
         </ion-label>
       </div>
-      
     </ion-item>
   </ion-list>
 </ion-content>
