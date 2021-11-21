@@ -27,6 +27,10 @@ const routes: Routes = [
     path: 'restock',
     loadChildren: () => import('./restock/restock.module').then( m => m.RestockPageModule)
   },
+  {
+    path: 'add-product',
+    loadChildren: () => import('./add-product/add-product.module').then( m => m.AddProductPageModule)
+  },
 ];
 
 @NgModule({

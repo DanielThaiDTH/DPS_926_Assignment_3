@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [text]="Back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Product</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/']">Home</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-item>
+      <ion-label position="stacked">
+        Product Name <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input required inputmode="text" ngModel name="name" placeholder="Enter a name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label positon="stacked">
+        Initial Quantity
+      </ion-label>
+      <ion-input inputmode="numeric" ngModel name="qty" placeholder="Enter a quantity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label positon="stacked">
+        Price <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input inputmode="numeric" required ngModel name="price" placeholder="Enter a price"></ion-input>
+    </ion-item>
+    <div class="row">
+      <ion-chip *ngIf="displayError" [style.background-color]="error_color" id="error">
+        <ion-label color="danger">
+          {{errorMsg}}
+        </ion-label>
+      </ion-chip>
+    </div>
+    <div class="row">
+      <ion-button type="submit" [disabled]="!f.valid">Restock</ion-button>
+      <ion-button color="medium" (click)="back()">Cancel</ion-button>
+    </div>
+  </form>
+</ion-content>
