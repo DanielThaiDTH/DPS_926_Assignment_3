@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<div>
   <ion-grid>
     <!-- First Row -->
     <ion-row>
@@ -23,11 +23,11 @@
     <!-- Button Row -->
     <ion-row class="ion-justify-content-around">
       <ion-col size="auto">
-        <app-number-input (countChange)="updateCount($event)" [count] = "count"></app-number-input>
+        <app-number-input (countChange)="updateCount($event)" [count]="count"></app-number-input>
       </ion-col>
       <ion-col size="auto">
         <ion-button color="primary" (click)="buyItem()">Buy</ion-button>
-        <br/>
+        <br />
         <ion-button color="medium" (click)="clearCount()">Clear</ion-button>
       </ion-col>
     </ion-row>
@@ -37,12 +37,15 @@
       <p>{{count}}</p>
     </ion-row>
     <!-- Qty Row -->
-    <!-- List Row -->
+  </ion-grid>
+</div>
+<ion-content>
+  <div>
     <ion-list-header>
-      <ion-label>Products</ion-label>
+      <ion-label style="font-weight: bold;">Products</ion-label>
     </ion-list-header>
-    <ion-list *ngFor="let item of inventory">
-      <ion-item class="inv-list" button (click)="itemClick(item)" detail=false>
+    <ion-list>
+      <ion-item *ngFor="let item of inventory" class="inv-list" button (click)="itemClick(item)" detail=false>
         <div class="name-qty-stack">
           <ion-label>
             {{item.name}}
@@ -56,6 +59,5 @@
         </ion-label>
       </ion-item>
     </ion-list>
-    <!-- List Row -->
-  </ion-grid>
+  </div>
 </ion-content>

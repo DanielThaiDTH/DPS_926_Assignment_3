@@ -87,7 +87,7 @@ export class AddProductPage implements OnInit {
       price = parseFloat(f.value.price);
     }
 
-    let isAdded = this.inv_serv.addItem(new Item(this.inv_serv.generateID(), f.value.name, qty, price));
+    let isAdded = this.inv_serv.addItem(new Item(this.inv_serv.generateID(), f.value.name, price, qty));
 
     if (!isAdded) {
       this.errorMsg = "Item with the name " + f.value.name + " already exists.";

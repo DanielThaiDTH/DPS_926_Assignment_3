@@ -11,39 +11,41 @@
 </ion-header>
 
 <ion-content>
-  <ion-label id="selected-item">Item: {{selectedItem | itemName}}</ion-label>
-  <form #f="ngForm" (ngSubmit)="updateStock(f)">
-    <ion-item>
-      <ion-label position="stacked">
-        Restock Quantity <ion-text color="danger">*</ion-text>
-      </ion-label>
-      <ion-input required inputmode="numeric" ngModel name="add_qty" placeholder="Enter a quantity"></ion-input>
-    </ion-item>
-    <div class="row">
-      <ion-chip *ngIf="displayError" [style.background-color]="error_color" id="error">
-        <ion-label color="danger">
-          {{errorMsg}}
+  <div id="main-div">
+    <ion-label id="selected-item">Item: {{selectedItem | itemName}}</ion-label>
+    <form #f="ngForm" (ngSubmit)="updateStock(f)">
+      <ion-item>
+        <ion-label position="stacked">
+          Restock Quantity <ion-text color="danger">*</ion-text>
         </ion-label>
-      </ion-chip>
-    </div>
-    <div class="row">
-      <ion-button type="submit" [disabled]="!f.valid">Restock</ion-button>
-      <ion-button color="medium" (click)="back()">Cancel</ion-button>
-    </div>
-  </form>
-  <ion-list-header>
-    <ion-label>Products</ion-label>
-  </ion-list-header>
-  <ion-list *ngFor="let item of inventory">
-    <ion-item detail="false" (click)="itemClicked(item)">
-      <div>
-        <ion-label>
-          {{item.name}}
-        </ion-label>
-        <ion-label>
-          {{item.quantity}}
-        </ion-label>
+        <ion-input required inputmode="numeric" ngModel name="add_qty" placeholder="Enter a quantity"></ion-input>
+      </ion-item>
+      <div class="row">
+        <ion-chip *ngIf="displayError" [style.background-color]="error_color" id="error">
+          <ion-label color="danger">
+            {{errorMsg}}
+          </ion-label>
+        </ion-chip>
       </div>
-    </ion-item>
-  </ion-list>
+      <div class="row">
+        <ion-button type="submit" [disabled]="!f.valid">Restock</ion-button>
+        <ion-button color="medium" (click)="back()">Cancel</ion-button>
+      </div>
+    </form>
+    <ion-list-header>
+      <ion-label style="font-weight: bold;">Products</ion-label>
+    </ion-list-header>
+    <ion-list *ngFor="let item of inventory">
+      <ion-item detail="false" (click)="itemClicked(item)">
+        <div>
+          <ion-label>
+            {{item.name}}
+          </ion-label>
+          <ion-label>
+            {{item.quantity}}
+          </ion-label>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
