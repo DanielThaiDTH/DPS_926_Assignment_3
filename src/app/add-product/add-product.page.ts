@@ -34,12 +34,7 @@ export class AddProductPage implements OnInit {
       return false;
 
     let num: number = parseInt(text);
-
-    if (isNaN(num)) {
-      return false;
-    } else {
-      return true;
-    }
+    return !isNaN(num);
   }
 
   validFloat(text: string): boolean {
@@ -47,12 +42,7 @@ export class AddProductPage implements OnInit {
       return false;
 
     let num: number = parseFloat(text);
-
-    if (isNaN(num)) {
-      return false;
-    } else {
-      return true;
-    }
+    return !isNaN(num);
   }
 
   /**

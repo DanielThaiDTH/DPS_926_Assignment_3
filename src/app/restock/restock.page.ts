@@ -42,11 +42,7 @@ export class RestockPage implements OnInit {
 
     let num: number = parseInt(text);
 
-    if (isNaN(num)) {
-      return false;
-    } else {
-      return true;
-    }
+    return !isNaN(num);
   }
 
   /**
