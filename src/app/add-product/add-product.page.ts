@@ -4,6 +4,9 @@ import { Location } from '@angular/common';
 import { InventoryService } from '../inventory-service.service';
 import { Item } from '../Item';
 
+/**
+ * Class for add product page. Provides add product functionality. 
+ */
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.page.html',
@@ -11,14 +14,17 @@ import { Item } from '../Item';
 })
 export class AddProductPage implements OnInit {
 
-  errorMsg: string = "";
-  displayError: boolean = false;
+  errorMsg: string = ""; //Displayed when there is a form error
+  displayError: boolean = false; //Only show error when this is true
   error_color: string = "pink";
   constructor(private inv_serv: InventoryService, private location: Location) { }
 
   ngOnInit() {
   }
 
+  /**
+   * Uses Location to navigate to previous page.
+   */
   back(): void {
     this.location.back();
   }
@@ -49,6 +55,13 @@ export class AddProductPage implements OnInit {
     }
   }
 
+  /**
+   * Validates the submited product form. Will display an 
+   * error if the quantity is not an integer or if the price 
+   * is not a number. Will additionally display an error if 
+   * the item name is already used. Other wise it adds to the 
+   * inventory and navigates back to the manager page.
+   */
   onSubmit(f: NgForm) {
     if (!f.valid) {
       alert("Invalid Item");

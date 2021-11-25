@@ -3,6 +3,9 @@ import { SaleLog } from '../SaleLog';
 import { ActivatedRoute } from '@angular/router';
 import { HistoryService } from '../history.service';
 
+/**
+ * Displays the purchase log using the id from the route query paramaters.
+ */
 @Component({
   selector: 'app-log',
   templateUrl: './log.page.html',

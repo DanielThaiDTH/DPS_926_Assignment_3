@@ -20,6 +20,7 @@
         </ion-label>
         <ion-input required inputmode="numeric" ngModel name="add_qty" placeholder="Enter a quantity"></ion-input>
       </ion-item>
+      <!-- Error Message -->
       <div class="row">
         <ion-chip *ngIf="displayError" [style.background-color]="error_color" id="error">
           <ion-label color="danger">
@@ -27,11 +28,13 @@
           </ion-label>
         </ion-chip>
       </div>
+      <!-- Submit or cancel buttons -->
       <div class="row">
         <ion-button type="submit" [disabled]="!f.valid">Restock</ion-button>
         <ion-button color="medium" (click)="back()">Cancel</ion-button>
       </div>
     </form>
+    <!-- The list of items in inventory -->
     <ion-list-header>
       <ion-label style="font-weight: bold;">Products</ion-label>
     </ion-list-header>

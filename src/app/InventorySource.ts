@@ -1,5 +1,8 @@
 import { Item } from './Item';
 
+/**
+ * Generates sample inventory for the app.
+ */
 export function create() : Item[] {
     let inventory : Item[] = [];
     inventory.push( new Item(1, "Pants", 55.50, 20));

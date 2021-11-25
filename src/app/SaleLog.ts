@@ -1,3 +1,7 @@
+/**
+ * Logs a purchase, storing item name , qty and total price. New id generated for each purchase. 
+ * The date is the created at the time of construction.
+ */
 export class SaleLog {
     private static id_gen: number = 0;
     id: number;

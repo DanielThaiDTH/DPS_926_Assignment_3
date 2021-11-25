@@ -1,6 +1,9 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
+/**
+ * Class for the number input using a keypad.
+ */
 @Component({
   selector: 'app-number-input',
   templateUrl: './number-input.component.html',
@@ -20,6 +23,10 @@ export class NumberInputComponent implements OnInit {
 
   ngOnInit() {}
 
+  /**
+   * Adds the given number as a new digit to the count. Checks for 
+   * count limits and ignores 0 if it is the first digit. 
+   */
   buttonClick(value: number) {
     //Reset digits if count is cleared
     if (this.count == 0)
@@ -34,9 +41,11 @@ export class NumberInputComponent implements OnInit {
 
     this.digits.push(value);
     this.count = 0;
+    //Add new value as the leading digit
     for (let i = 0; i < this.digits.length; i++) {
       this.count += Math.pow(10, this.digits.length - i - 1) * this.digits[i];
     }
+    //Inform the home page
     this.countChange.emit(this.count);
   }
 

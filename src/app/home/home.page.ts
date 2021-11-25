@@ -6,7 +6,9 @@ import { Item } from '../Item';
 import { SaleLog } from '../SaleLog';
 import { NumberInputComponent } from '../number-input/number-input.component';
 
-
+/**
+ * Class for the main page of the app.
+ */
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,6 +20,7 @@ export class HomePage {
   count: number;
   selectedItem: Item;
 
+  //Get access to the number pad child component
   @ViewChild(NumberInputComponent)
   private num_input: NumberInputComponent;
   
@@ -31,6 +34,9 @@ export class HomePage {
     inv.subscribe(res => this.inventory = res);
   }
 
+  /**
+   * Used to update count. Bound to an event in the number input class.
+   */
   updateCount(num: number) {
     this.count = num;
   }
@@ -43,6 +49,11 @@ export class HomePage {
     this.selectedItem = it;
   }
 
+  /**
+   * Purchases an item, deducting the quantity from inventory. A item must be selected and it 
+   * must have sufficient quantity for the count purchased. Creates an alert otherwise. 
+   * Records a successful purchase into history and clears the number pad.
+   */
   buyItem(): void {
     if (!this.selectedItem) {
       alert("No item selected");

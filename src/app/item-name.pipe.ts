@@ -1,6 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Item } from './Item';
 
+/**
+ * Provides a empty string fallback if the item is null.
+ */
 @Pipe({
   name: 'itemName'
 })

@@ -4,6 +4,9 @@ import { InventoryService } from '../inventory-service.service';
 import { NgForm } from '@angular/forms';
 import { Item } from '../Item';
 
+/**
+ * Class for the restock page.
+ */
 @Component({
   selector: 'app-restock',
   templateUrl: './restock.page.html',
@@ -13,8 +16,8 @@ export class RestockPage implements OnInit {
 
   inventory: Item[];
   selectedItem: Item;
-  errorMsg: string = "";
-  displayError: boolean = false;
+  errorMsg: string = ""; //Error msg for invalid input
+  displayError: boolean = false; //Only display error msg if true
   error_color: string = "pink";
   constructor(private inv_serv: InventoryService, private location: Location) { }
 
@@ -26,6 +29,9 @@ export class RestockPage implements OnInit {
     });
   }
 
+  /**
+   * Sets the selected item as the one that was clicked.
+   */
   itemClicked(item: Item) {
     this.selectedItem = item;
   }
@@ -43,6 +49,12 @@ export class RestockPage implements OnInit {
     }
   }
 
+  /**
+   * Validates the update stock form. Checks if an item is selected and 
+   * if the given quantity is a number. Displays an error message on 
+   * screen if not. Adds to the quantity of the selected item if 
+   * successful.
+   */
   updateStock(f: NgForm): void {
     if (!this.selectedItem) {
       alert("An item must be selected.");
@@ -63,6 +75,9 @@ export class RestockPage implements OnInit {
     }
   }
 
+  /**
+   * Navigate back to the Manager page using Location
+   */
   back(): void {
     this.location.back();
   }
